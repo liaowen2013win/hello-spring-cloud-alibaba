@@ -22,8 +22,25 @@ public class TestEchoController {
     @Autowired
     private EchoService echoService;
 
+    /**
+     * 测试FeignClient
+     *
+     * @param str
+     * @return
+     */
     @GetMapping(value = "/feign/echo/{str}")
     public String echo(@PathVariable String str) {
         return echoService.echo(str);
     }
+
+    /**
+     * 测试负载均衡
+     *
+     * @return
+     */
+    @GetMapping(value = "/lb")
+    public String lb() {
+        return echoService.lb();
+    }
+
 }

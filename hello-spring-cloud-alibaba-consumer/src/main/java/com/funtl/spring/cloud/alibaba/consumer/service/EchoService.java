@@ -17,4 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface EchoService {
     @GetMapping(value = "/echo/{string}")
     String echo(@PathVariable("string") String string);
+
+    @GetMapping(value = "/lb")
+    String lb();
 }
